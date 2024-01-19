@@ -6,7 +6,7 @@
   body{
     font-size:16px;
     font-family: 'Roboto', sans-serif;
-    background-color:lightblue;
+    background-color:#78aabb;
   }
   
   .container{
@@ -106,4 +106,16 @@
     text-align:center;
     line-height:30px;
   }
+
+
+  @media (min-width:375px) {
+    .list-item{
+        width:75%;
+    }
+  }
   
+  @media (min-width:768px) {
+    .list-item{
+        width:78%;
+    }
+  }
