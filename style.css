@@ -1,121 +1,251 @@
 *{
-    margin:0;
-    padding:0;
+  margin:0;
+  padding:0;
+}
+
+:root{
+--body-bg-dark: #000606;
+--body-bg-light:#84b3cd;
+--icon-hover-dark: orange;
+--icon-hover-light:#016fba;
+--item-text:#4a4a4a;
+--btn-bg-dark:#0f2524;
+--btn-bg-light:#d38521;
+
+}
+
+body{
+  font-size:16px;
+  font-family: 'Roboto', sans-serif;
+  background-color:var(--body-bg-dark);
+}
+
+.container{
+  width:100%;
+  min-width:320px;
+  max-width:600px;
+  height:180px;
+  background-image:url("https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding:30px 0;
+  margin:0 auto;
+}
+
+.input-container{
+  display:flex;
+  flex-direction:row;
+  margin:10px 0px 35px 6vw;
+}
+
+
+.title{
+  font-size:2rem;
+  text-transform:uppercase;
+  letter-spacing:0.2rem;
+  color:white;
+  margin:30px 6vw;
+  position:relative;
+}
+
+.mode-icon{
+width:25px;
+height:25px;
+flex-grow:1;
+font-size:1.4rem;
+cursor:pointer;
+color:white;
+transition:0.3s;
+position:absolute;
+top:8px;
+left:calc(100% - 30px);
+}
+
+.mode-icon:hover{
+color:var(--icon-hover-dark);
+font-size:1.6rem;
+transform: rotate(360deg);
+}
+
+.list-item{
+  width:73%;
+  height:25px;
+  border-radius: 5px;
+  border:none;
+  padding:5px;
+  padding-left:10px;
+  color:var(--item-text);
+  font-size:0.9rem;
+  margin:0 10px 20px 0;
+}
+
+.list-item:focus{
+  outline:2px solid var(--btn-bg-dark);
+}
+
+.btn-add{
+  width:35px;
+  height:35px;
+  border:none;
+  border-radius:5px;
+  background-color:white;
+  color:var(--btn-bg-dark);
+  font-size:1.5rem;
+  font-weight:400;
+  position:relative;
+  transition:all 0.8s;
   }
+
+.fa-plus{
+font-size:1.2rem;
+position: absolute;
+top:22%;
+left:10px;
+}
+
+
+.btn-add:hover,
+.btn-remove:hover{
+  background-color:var(--btn-bg-dark);
+  color:white;
+  cursor:pointer;
+}
+
+
+.item-container{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  margin-left:6vw;
+}
+
+.item-list{
+  width:85%;
+  height:25px;
+  border-radius: 5px;
+  border:none;
+  padding:5px;
+  padding-left:13px;
+  border-radius:0;
+  border-bottom:1px solid lightgrey;
+  background-color:white;
+  color:var(--item-text);
+  font-size:0.9rem;
+  margin-right:10px;
+  line-height:25px;
+  transition: transform 1s ease, opacity 1.2s ease;
+}
+
+.removed-item {
+  transform: translateX(-100%);
+  opacity:0;
   
-  body{
-    font-size:16px;
-    font-family: 'Roboto', sans-serif;
-    background-color:#78aabb;
-  }
-  
-  .container{
-    width:100%;
-    min-width:320px;
-    max-width:600px;
-    height:180px;
-    background-image:url("https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    padding:30px 0;
-    margin:0 auto;
-  }
-  
-  .input-container{
-    display:flex;
-    flex-direction:row;
-    margin:10px 0px 35px 6vw;
-  }
-  
-  .title{
-    font-size:2rem;
-    text-transform:uppercase;
-    letter-spacing:0.2rem;
-    color:white;
-    margin:30px 5vw;
-  }
-  
+}
+
+.btn-remove{
+  width:30px;
+  height:30px;
+  border:none;
+  border-radius:5px;
+  background-color:white;
+  color:var(--btn-bg-dark);
+  font-size:1rem;
+  font-weight:400;
+  margin-left:-45px;
+  text-align:center;
+  line-height:30px;
+  position:relative;
+  transition:all 0.8s;
+}
+
+.fa-trash{
+color:grey;
+position:absolute; 
+left:7px;
+top:20%;
+font-size:1.2rem;
+}
+
+.btn-remove:hover .fa-trash{
+ color:white;
+}
+
+.light-mode{
+background-color:var(--body-bg-light);
+}
+
+.light-mode .container{
+background-image:url("https://images.pexels.com/photos/4997888/pexels-photo-4997888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+
+.light-mode   .list-item:focus{
+outline: 2px solid var(--btn-bg-light);
+}
+
+.light-mode .btn-add{
+color:var(--btn-bg-light);
+}
+
+.light-mode .btn-add:hover,
+.light-mode .btn-remove:hover{
+background-color: var(--btn-bg-light);
+color:white;
+}
+
+.light-mode .mode-icon::before {
+content: "\f186"; /* Código de la luna en Font Awesome */
+}
+
+.mode-icon::before {
+content: "\f185"; /* Código del sol en Font Awesome */
+}
+
+.light-mode .mode-icon:hover{
+color:var(--icon-hover-light);
+}
+
+@keyframes fadeInUp{
+to{
+  opacity:1;
+  transform:translateY(0);
+}
+}
+
+@media (min-width:375px) {
   .list-item{
-    width:73%;
-    height:25px;
-    border-radius: 5px;
-    border:none;
-    padding:5px;
-    color:#4a4a4a;
-    font-size:0.9rem;
-    margin:0 10px 20px 0;
+      width:75%;
   }
   
-  .list-item:focus{
-    outline:2px solid #5f9ea0;
-  }
-  
-  .btn-add{
-    width:35px;
-    height:35px;
-    border:none;
-    border-radius:5px;
-    background-color:white;
-    color:#5f9ea0;
-    font-size:1.5rem;
-    font-weight:400;
-  }
-  
-  .btn-add:hover,
-  .btn-remove:hover{
-    background-color:#5f9ea0;
-    color:white;
-    cursor:pointer;
-  }
-  
-  
-  .item-container{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    margin-left:6vw;
-  }
-  
-  .item-list{
-    width:85%;
-    height:25px;
-    border-radius: 5px;
-    border:none;
-    padding:5px;
-    padding-left:13px;
-    border-radius:0;
-    border-bottom:1px solid lightgrey;
-    background-color:white;
-    color:#4a4a4a;
-    font-size:0.9rem;
-    margin-right:10px;
-    line-height:25px;
-  }
-  
-  .btn-remove{
-    width:30px;
-    height:30px;
-    border:none;
-    border-radius:5px;
-    background-color:white;
-    color:#5f9ea0;
-    font-size:1rem;
-    font-weight:400;
-    margin-left:-45px;
-    text-align:center;
-    line-height:30px;
-  }
+}
 
-
-  @media (min-width:375px) {
-    .list-item{
-        width:75%;
-    }
+@media (min-width:420px) {
+  .mode-icon{
+      left:calc(100% - 45px);
   }
   
-  @media (min-width:768px) {
-    .list-item{
-        width:78%;
-    }
+}
+
+@media (min-width:500px) {
+  .mode-icon{
+      left:calc(100% - 60px);
   }
+  
+}
+
+@media (min-width:550px) {
+  .mode-icon{
+      left:calc(100% - 70px);
+  }
+  
+}
+
+@media (min-width:700px) {
+  .list-item{
+      width:78%;
+  }
+  
+  .mode-icon{
+      left:calc(100% - 50px);
+  }
+}
